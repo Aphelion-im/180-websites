@@ -1,16 +1,18 @@
-// Animated Pixel Ruler. By André de Groot 12-february 2017, 15:37.
-
+// Animated Pixel Ruler. By André de Groot 12-february 2017, 15:37. Updated: 12-1-2021.
 
 "use strict";
 
+
+window.addEventListener("load", () => {
+
 //Variables
-var inputField = document.getElementById("inputField");
-var arrow = document.querySelector(".arrow");
-var warning = document.querySelector(".warning");
+const inputField = document.querySelector("#inputField");
+const arrow = document.querySelector(".arrow");
+const warning = document.querySelector(".warning");
 
-inputField.addEventListener("change", function() {
+inputField.addEventListener("change", () => {
 
-        var inputValue = parseInt(inputField.value);
+        const inputValue = parseInt(inputField.value);
 
         if (inputValue < 0 || inputValue > 396) {
             warning.innerHTML = "Value not correct. Enter a number between 0 and 396.";
@@ -20,13 +22,12 @@ inputField.addEventListener("change", function() {
             warning.innerHTML = "Enter a number between 0 and 396.";
             inputField.value = "";
         } else {
-
-            warning.innerHTML = "You entered the value: " + inputValue + " pixels.";
+            warning.innerHTML = `You entered the value: ${inputValue} pixels.`;
             arrow.style.left = inputValue + "px";
             inputField.value = "";
         }
-
     }
-
-
 );
+
+
+}); // End load eventlistener.

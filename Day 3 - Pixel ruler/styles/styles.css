@@ -23,7 +23,7 @@ h1 {
 
 .ruler {
     position: relative;
-    background-image: url("https://s21.postimg.org/dklkxn6gn/ruler.jpg");
+    background-image: url("../img/ruler.jpg");
     width: 400px;
     height: 63px;
     margin: 25px auto;
