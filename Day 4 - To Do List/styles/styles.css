@@ -63,6 +63,8 @@ footer {
     cursor: pointer;
     margin: 1px 0;
     line-height: 40px;
+    opacity: 100%;
+    transition: opacity ease-in 250ms;
 }
 
 .toDoList li:nth-child(even) {
@@ -124,3 +126,4 @@ input:focus {
     float: right;
     cursor: pointer;
 }
+
