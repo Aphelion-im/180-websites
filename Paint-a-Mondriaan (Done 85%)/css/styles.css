@@ -1,0 +1,207 @@
+body {
+    font-family: 'Artifika', serif;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+}
+
+button {
+    cursor: pointer;
+    height: 35px;
+    padding: 10px 25px;
+    background-color: #0000FF;
+    border: none;
+    color: #fff;
+    font-family: 'Artifika', serif;
+    font-size: 12px;
+    box-sizing: border-box;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #4C4CFF;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+nav {
+    margin: -10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
+.redPaint,
+.bluePaint,
+.yellowPaint,
+.blackPaint,
+.whitePaint {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    cursor: url("https://s10.postimg.org/jw14oimy1/pipette.png"), auto;
+}
+
+.redPaint {
+    background: url("https://s1.postimg.org/crzcmazgv/red_paint_splatter.png");
+}
+
+.bluePaint {
+    background: url("https://s1.postimg.org/snjlbv0nj/blue_paint_splatter.png");
+}
+
+.blackPaint {
+    background: url("https://s27.postimg.org/733lne3nn/black_paint_splatter.png");
+}
+
+.whitePaint {
+    background: url("https://s1.postimg.org/lbiqk27tb/white_paint_splatter.png");
+}
+
+.yellowPaint {
+    background: url("https://s1.postimg.org/r0yz4ddzj/yellow_paint_splatter.png");
+}
+
+#artistNameInput {
+    margin: 20px auto;
+    padding: 5px 10px;
+    height: 35px;
+    box-sizing: border-box;
+    font-family: 'Artifika', serif;
+    font-size: 12px;
+}
+
+#artistNameInput:focus {
+    border: 2px solid #0000FF;
+}
+
+.outputArtistName {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    font-family: 'Parisienne', cursive;
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.painting {
+    width: 70%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    cursor: url("https://s10.postimg.org/y16xqbvzd/brush.png"), auto;
+    border: 10px solid #3F3F3F;
+}
+
+.box {
+    float: left;
+    /*position: absolute;*/
+    display: inline-block;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.box1 {
+    width: 25%;
+    height: 25%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box2 {
+    width: 14%;
+    height: 25%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box3 {
+    width: 8%;
+    height: 25%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box4 {
+    width: 8%;
+    height: 25%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box5 {
+    width: 35%;
+    height: 25%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box6 {
+    width: 10%;
+    height: 25%;
+    border-bottom: 5px solid #3F3F3F;
+}
+
+.box7 {
+    width: 35%;
+    height: 40%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box8 {
+    width: 23%;
+    height: 40%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box9 {
+    width: 15%;
+    height: 40%;
+    border-bottom: 5px solid #3F3F3F;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box10 {
+    width: 27%;
+    height: 40%;
+    border-bottom: 5px solid #3F3F3F;
+}
+
+.box11 {
+    width: 27%;
+    height: 35%;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box12 {
+    width: 15%;
+    height: 35%;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box13 {
+    width: 18%;
+    height: 35%;
+    border-right: 5px solid #3F3F3F;
+}
+
+.box14 {
+    width: 40%;
+    height: 35%;
+}
+
+
+@media screen and (max-width: 480px)  {
+   .painting {
+    width: 90%;
+   } 
+}
+

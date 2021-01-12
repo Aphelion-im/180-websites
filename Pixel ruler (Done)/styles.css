@@ -1,0 +1,44 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#inputField {
+    padding: 5px;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+#inputField:focus {
+    border: 2px solid #AED8E6;
+}
+
+.ruler {
+    position: relative;
+    background-image: url("https://s21.postimg.org/dklkxn6gn/ruler.jpg");
+    width: 400px;
+    height: 63px;
+    margin: 25px auto;
+}
+
+.arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.5s;
+    width: 43px;
+    height: 63px;
+}
+
+.warning {
+    margin: 20px auto;
+    font-weight: bold;
+}
