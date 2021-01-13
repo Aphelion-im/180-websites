@@ -109,7 +109,5 @@ window.addEventListener("load", () => {
 }); // End load eventlistener
 
 /*To do's
-- Const and let not working on Ipad.
-- Fadeout/in effect when pressing -/+
 - Deprecated e.keyCode.
 */
