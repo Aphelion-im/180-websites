@@ -44,27 +44,27 @@ footer {
     width: 100px;
     height: 100px;
     display: inline-block;
-    cursor: url("https://s10.postimg.org/jw14oimy1/pipette.png"), auto;
+    cursor: url("../css/pipette.png"), auto;
 }
 
 .redPaint {
-    background: url("https://s1.postimg.org/crzcmazgv/red_paint_splatter.png");
+    background: url("../img/red-paint-splatter.png");
 }
 
 .bluePaint {
-    background: url("https://s1.postimg.org/snjlbv0nj/blue_paint_splatter.png");
+    background: url("../img/blue-paint-splatter.png");
 }
 
 .blackPaint {
-    background: url("https://s27.postimg.org/733lne3nn/black_paint_splatter.png");
+    background: url("../img/black-paint-splatter.png");
 }
 
 .whitePaint {
-    background: url("https://s1.postimg.org/lbiqk27tb/white_paint_splatter.png");
+    background: url("../img/white-paint-splatter.png");
 }
 
 .yellowPaint {
-    background: url("https://s1.postimg.org/r0yz4ddzj/yellow_paint_splatter.png");
+    background: url("../img/yellow-paint-splatter.png");
 }
 
 #artistNameInput {
@@ -95,14 +95,12 @@ footer {
     height: 500px;
     margin: 0 auto;
     position: relative;
-    cursor: url("https://s10.postimg.org/y16xqbvzd/brush.png"), auto;
+    cursor: url("../css/brush.png"), auto;
     border: 10px solid #3F3F3F;
 }
 
 .box {
     float: left;
-    /*position: absolute;*/
-    display: inline-block;
     margin: 0px;
     box-sizing: border-box;
 }
@@ -199,9 +197,8 @@ footer {
 }
 
 
-@media screen and (max-width: 480px)  {
-   .painting {
-    width: 90%;
-   } 
+@media screen and (max-width: 480px) {
+    .painting {
+        width: 90%;
+    }
 }
-
