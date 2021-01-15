@@ -1,34 +1,35 @@
+/* 
+Based on Jennifer Dewalt's Technicolor boxes (jQuery) - https://jenniferdewalt.com/technicolor_boxes.html
+
+https://stackoverflow.com/questions/7723188/what-properties-can-i-use-with-event-target
+
+*/
+
 "use strict";
 
 window.addEventListener("load", () => {
 
-  const blocks = document.querySelectorAll("div");
+  const main = document.querySelector("main");
+
+  let numberOfBlocks = 200;
 
 
+  const createBlocks = () => {
+    for (let i = 0; i < numberOfBlocks; i++) {
+      let colorBlock = document.createElement("div");
+      main.appendChild(colorBlock);
+    }
+  };
 
-  for (let block of blocks) {
+  createBlocks();
 
-    block.addEventListener("mouseover", (e) => {
-
-      const num1 = Math.floor(Math.random() * 255);
-      const num2 = Math.floor(Math.random() * 255);
-      const num3 = Math.floor(Math.random() * 255);
-
-      block.style.backgroundColor = `#${num1}${num2}${num3}`;
-      block.style.border = "5px solid black";
-
-    });
-  }
-
-
-
-
-
-
-
-
-
-
-
-
+  main.addEventListener("mouseover", e => {
+    if (e.target.localName === "div") {
+      let num1 = Math.floor(Math.random() * 255);
+      let num2 = Math.floor(Math.random() * 255);
+      let num3 = Math.floor(Math.random() * 255);
+      e.target.style.backgroundColor = `rgb(${num1}, ${num2}, ${num3})`;
+      e.target.style.boxShadow = "0 0 8px white";
+    } 
+  });
 }); // End load eventlistener

@@ -5,15 +5,20 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #101010;
+}
+
 main {
-  background-color: #ccc;
-  width: 1000px;
-  margin: 0 auto;
+  background-color: #444;
   display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 1000px;
 }
 
 div {
-  width: 100px;
+  background-color: #444;
   height: 100px;
-  background-color: red;
+  width: 100px;
 }
