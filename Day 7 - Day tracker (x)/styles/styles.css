@@ -15,8 +15,10 @@ body {
 }
 
 .message {
-  background-color: #c5d32c;
-  padding: 75px;
+  background-color: #16A085;
+  color: white;
+  font-size: 2rem;
+  padding: 60px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -25,11 +27,13 @@ body {
   box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 6px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  text-shadow: -3px 3px 0 rgba(0,0,0,0.3);
 }
 
 .tab {
+  color: #f39c12;
   padding: 24px 32px;
-  background-color: #ccc;
+  background-color: #F1C40F;
   font-size: 1.3rem;
   height: 100px;
   width: 100px;
@@ -47,7 +51,7 @@ body {
   justify-content: center;
   align-items: flex-end;
   text-shadow: -3px 3px 0 rgba(0,0,0,0.3);
+  z-index: -1;
 }
 
 
-/* Zaterdag BG kleur: #16A085 */

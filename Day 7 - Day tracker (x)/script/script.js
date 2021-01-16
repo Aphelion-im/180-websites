@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
   for (let dayTab of dayTabs) {
 
     if ((dayTab.getAttribute("data-day")) == dayArray[day].id) {
-      dayTab.style.backgroundColor = "red";
+      dayTab.style.backgroundColor = "#16A085";
       dayTab.classList.remove("tab");
       dayTab.classList.add("today");
 
