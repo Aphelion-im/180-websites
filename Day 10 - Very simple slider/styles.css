@@ -1,0 +1,21 @@
+.container {
+    margin: 0 auto;
+    width: 600px;
+  }
+  
+  #slider {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+  }
+  
+  #buttonLeft {
+    float: left;
+  }
+  
+  #buttonRight {
+    float: right;
+  }
+  
