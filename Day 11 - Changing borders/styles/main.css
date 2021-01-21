@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000;
+}
+
+#border {
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	border: 10px solid red;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button {
+	position: absolute;
+	bottom: 0%;
+	left: 30%;
+}
+
+#output {
+	font-weight: 700;
+	text-transform: capitalize;
+}
