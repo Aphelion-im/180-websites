@@ -1,0 +1,13 @@
+let items, myJSON;  
+
+items = 
+    {todo: "Doing the dishes",
+     todo: "Do homework"
+        
+    
+    
+    };
+
+
+myJSON = JSON.stringify(items);
+localStorage.setItem("testJSON", myJSON);
