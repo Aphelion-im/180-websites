@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+}
+.output {
+  border-radius: 16px;
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+  font-size: 2rem;
+}
+
