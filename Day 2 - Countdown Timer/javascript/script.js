@@ -28,6 +28,3 @@ window.addEventListener("load", () => {
 
 }); // End load eventlistener
 
-/* Issues:
-Timer jumps when below 10
-*/

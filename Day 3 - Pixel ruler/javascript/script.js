@@ -1,4 +1,4 @@
-// Animated Pixel Ruler. By André de Groot 12-february 2017, 15:37. Updated: 12-1-2021.
+// Animated Pixel Ruler. Updated 31-2-2021.
 
 "use strict";
 

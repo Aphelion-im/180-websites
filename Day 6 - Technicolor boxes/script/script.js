@@ -1,7 +1,7 @@
 /* 
 Based on Jennifer Dewalt's Technicolor boxes (jQuery) - https://jenniferdewalt.com/technicolor_boxes.html
 
-https://stackoverflow.com/questions/7723188/what-properties-can-i-use-with-event-target
+
 
 */
 

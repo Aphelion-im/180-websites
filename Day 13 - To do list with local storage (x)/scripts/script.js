@@ -1,15 +1,3 @@
-/* Oplossingen: 
-Adding an Event Listener to Dynamically Created Elements:
-https://forum.freecodecamp.org/t/adding-an-event-listener-to-dynamically-created-elements/185906/2
-
-Nieuw 26-1-2021:
-* setTimeout(function, seconds); --> Show/hide message for/after x seconds 
-* children.length;
-* e.target.tagName == "LI";
-* .remove();
-* CSS: user-select:none;
-*/
-
 "use strict";
 
 window.addEventListener("load", () => {
@@ -17,17 +5,13 @@ window.addEventListener("load", () => {
   // Variables
   const item = document.querySelector("#itemEnter");
   const todoList = document.querySelector("ul");
-  let output = document.querySelector("h1 ~ div");
+  const output = document.querySelector("h1 ~ div");
   const maxNumberItems = 5;
   const button = document.querySelector(".button");
-  let text, obj;
-
-
-  let todoItems = [];
 
   item.addEventListener("keydown", e => {
 
-    if (e.keyCode == "13") {
+    if (e.key == "Enter") {
       inputCheck();
     }
   });
@@ -46,8 +30,6 @@ window.addEventListener("load", () => {
     inputCheck();
   });
 
-
-
   function createListItem() {
 
     const listItem = document.createElement("li");
@@ -60,14 +42,6 @@ window.addEventListener("load", () => {
     icon.addEventListener("click", () => icon.parentNode.parentNode.remove()); // Attach an eventlistener to an element before it's created
     span.appendChild(icon);
     icon.setAttribute("class", "fas fa-trash-alt");
-    
-    
-    // todoItems.push(item.value);
-    
-    // Show To do items array
-    // console.log(todoItems);
-
-    // Empty input field after submit
     item.value = "";
   }
 
@@ -84,14 +58,6 @@ window.addEventListener("load", () => {
     }
 
   }
-
-
-
-
-  text = localStorage.getItem("testJSON");
-  obj = JSON.parse(text);
-  output.innerHTML = obj.todo;
-
 
 
 }); // End load event

@@ -1,8 +1,4 @@
-/* Based on the Udemy course: The Web Developer Bootcamp. 
-Project: To-do list. https://www.udemy.com/the-web-developer-bootcamp, by Colt Steele. 
-
-Built with Javascript instead of jQuery.
-
+/* 
 Colour palette: 
 http://www.colourlovers.com/palette/4437356/mystical
 https://uigradients.com
@@ -38,7 +34,7 @@ window.addEventListener("load", () => {
 
     //Add item after pressing the Enter key
     document.addEventListener('keydown', function (e) {
-        if (e.keyCode == 13) {
+        if (e.key == "Enter") {
 
             //Making sure an empty input field can not be submitted.
             if (addItemInput.value != "") {
@@ -108,6 +104,3 @@ window.addEventListener("load", () => {
 
 }); // End load eventlistener
 
-/*To do's
-- Deprecated e.keyCode.
-*/

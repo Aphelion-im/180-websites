@@ -1,7 +1,3 @@
-/* Based on and inspired by Jennifer Dewalt's "Paint a Mondrian" (Day 4). https://jenniferdewalt.com
-
-Created by André de Groot.
-*/
 "use strict";
 
 window.addEventListener("load", () => {
@@ -81,6 +77,3 @@ window.addEventListener("load", () => {
 }); // End load eventlistener
 
 
-// Generate random canvas
-// Export canvas to picture + artist name bottom right. (.jpg, .png)
-// Generate random blocks

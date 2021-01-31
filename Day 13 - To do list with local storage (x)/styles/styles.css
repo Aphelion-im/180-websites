@@ -42,7 +42,7 @@ input {
   font-weight: 700;
   padding: 5px 16px;
   text-transform: uppercase;
-  user-select:none;
+  user-select: none;
 }
 
 .button:hover {
@@ -78,6 +78,10 @@ input {
 /* Font awesome */
 .fa-trash-alt {
   color: black;
+}
+
+.fa-trash-alt:hover {
+  color: red;
 }
 
 h1+div {
