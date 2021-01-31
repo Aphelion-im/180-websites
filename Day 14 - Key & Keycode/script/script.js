@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("load", () => {
 
   const output = document.querySelector(".output");
