@@ -2,4 +2,4 @@
 
 Updated: 31-1-2021
 
-* Array.reduce();
+* main.innerHTML = ""; to clear/remove children of main.
