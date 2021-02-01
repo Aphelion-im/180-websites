@@ -6,13 +6,23 @@ window.addEventListener("load", () => {
   const board = document.querySelector(".board");
   const output = document.querySelector(".output");
   const button = document.querySelector("button");
-  const winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,5,9],[3,5,7],[1,4,7],[2,5,8],[3,6,9]];
+  const winningCombinations = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 5, 9],
+    [3, 5, 7],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9]
+  ];
+
   const redArray = [];
   const blueArray = [];
   const numberOfCircles = 9;
   let counter = true;
 
-  output.innerHTML = "Red's turn"; // Standard message
+  output.textContent = "Red's turn"; // Standard message
   createBoard();
 
   function createBoard() {
@@ -27,18 +37,20 @@ window.addEventListener("load", () => {
 
   function paintCircle(e) {
 
+    const dataItem = e.target.getAttribute("data-item");
+
     if (counter) {
       e.target.classList.add("red");
-      output.innerHTML = "Blue's turn";
+      output.textContent = "Blue's turn";
       counter = false;
-      redArray.push("red");
+      redArray.push(dataItem);
     } else {
       e.target.classList.add("blue");
-      output.innerHTML = "Red's turn";
+      output.textContent = "Red's turn";
       counter = true;
-      blueArray.push("blue");
+      blueArray.push(dataItem);
     }
-    checkWinner();
+    paintColor();
   }
 
   // Reset board
@@ -51,14 +63,14 @@ window.addEventListener("load", () => {
       circle.classList.remove("red", "blue");
       circle.classList.remove("crsr");
       counter = true;
-      output.innerHTML = "Red's turn";
+      output.textContent = "Red's turn";
       redArray.length = "";
       blueArray.length = "";
     }
   });
 
 
-  function checkWinner() {
+  function paintColor() {
 
     console.clear();
 
@@ -74,20 +86,42 @@ window.addEventListener("load", () => {
 
     });
     countColors();
+    // checkWinner();
   }
 
   function countColors() {
 
     const totalArray = redArray.length + blueArray.length;
-    console.log("Red array: " + redArray);
-    console.log("Blue array: " + blueArray);
-    console.log("Total: " + totalArray);
 
     if (totalArray >= 9) {
-      output.innerHTML = "No more moves available!";
+      output.textContent = "No more moves available!";
     }
 
   }
+
+//   function checkWinner() {
+//     let strRed = redArray;
+//     let strBlue = blueArray;
+//     let strWinningCombinations = winningCombinations;
+
+//     console.log(strRed);
+//     console.log(strBlue);
+//     console.log(strWinningCombinations);
+
+// for (let combo of strWinningCombinations) {
+
+//       if (strWinningCombinations.includes(combo, 0)) {
+//         output.textContent = "Red is winner!";
+
+
+//       } else if (strWinningCombinations.includes(combo, 0)) {
+//         output.textContent = "Blue is winner!";
+//       }
+//     }
+
+
+//   }
+
 
 
 
