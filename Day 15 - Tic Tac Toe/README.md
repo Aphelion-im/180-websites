@@ -15,4 +15,5 @@ https://www.thecrazyprogrammer.com/2019/09/javascript-tic-tac-toe-game.html
 * Ania Kubów method: https://youtu.be/dBlSiGOFjUY  
 
 ## To do
-* noone wins (board full)
+* styling
+* counter max moves instead of array.push

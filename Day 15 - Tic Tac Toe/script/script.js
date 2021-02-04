@@ -8,8 +8,7 @@ window.addEventListener("load", () => {
   const output = document.querySelector(".output");
   const button = document.querySelector("button");
   const circles = document.querySelectorAll(".circle");
-  let redPlayer = [];
-  let bluePlayer = [];
+  let moves = 9; 
   let counter = true;
 
 
@@ -19,13 +18,13 @@ window.addEventListener("load", () => {
       this.removeEventListener("click", paintCircle);
       output.textContent = "Blue player's turn!";
       counter = false;
-      redPlayer.push("red");
+      moves--;
     } else {
       this.classList.add("blue");
       this.removeEventListener("click", paintCircle);
       output.textContent = "Red player's turn!";
       counter = true;
-      bluePlayer.push("blue");
+      moves--;
     }
     checkFullBoard();
     checkWinningCombinations();
@@ -73,18 +72,14 @@ window.addEventListener("load", () => {
       circle.classList.remove("red", "blue");
       counter = true;
       output.textContent = "Red player's turn";
-      redPlayer = [];
-      bluePlayer = [];
+      moves = 9;
     }
   });
 
 
   // When all circles contain blue or red paint, without a winner, display a message
   function checkFullBoard() {
-
-    if (redPlayer.length + bluePlayer.length == 9) {
-      output.textContent = "No winner!";
-    }
+    if (moves == 0) output.textContent = "No winner!";
   }
 
   // Attach eventlisteners to each empty circle
