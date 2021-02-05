@@ -7,6 +7,7 @@ window.addEventListener("load", () => {
   const cards = document.querySelectorAll(".card");
   const output = document.querySelector(".output");
   let score = 0;
+  const imagesDir = "../images/";
   const cardsArray = ["1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"];
   let chosenCards = [];
 
@@ -35,7 +36,8 @@ window.addEventListener("load", () => {
 
   function turnCard() {
     console.log("Turn card!");
-    this.style.backgroundColor = "white";
+    this.style.background = "none";
+    this.style.color = "darkslategray";
     let chosenCard = this.textContent;
     console.clear();
     console.log("Card chosen: " + chosenCard);
@@ -51,8 +53,9 @@ window.addEventListener("load", () => {
     } else {
       console.log("Not equal");
       setTimeout(() => {
-        this.style.backgroundColor = "blue"
-      }, 4000);
+        this.style.backgroundImage = `url(${imagesDir}card-back-200x200-v2.png)`;;
+        this.style.color = `rgba(0, 0, 0, 0)`;
+      }, 1000);
     }
 
 
