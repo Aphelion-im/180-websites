@@ -3,6 +3,8 @@
 :root {
   --lightblue: #AEDCE9;
   --darkerblue: #1891D0;
+  --width: 150px;
+  --height: 150px;
 }
 
 *,
@@ -23,9 +25,6 @@ p {
 }
 
 .info {
-  /* border-color: black;
-  border-style: solid;
-  border-width: 1px 1px 0 1px; */
   width: 1000px;
   padding: 8px;
   display: flex;
@@ -36,7 +35,6 @@ p {
 .grid {
   align-content: flex-start;
   align-items: center;
-  /* border: 1px solid black; */
   display: flex;
   flex-wrap: wrap;
   height: auto;
@@ -50,20 +48,27 @@ p {
   background-color: var(--lightblue);
   background-image: url(../images/card-back-200x200-v2.png);
   border-radius: 4px;
-  color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 1);
   font-weight: 700;
   align-items: center;
   border: 1px solid var(--darkerblue);
   display: flex;
-  height: 200px;
   justify-content: center;
   margin: 5px;
-  width: 200px;
-  box-shadow: -2px 2px 5px 1px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -2px 2px 5px 1px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px 2px 5px 1px rgba(0,0,0,0.75);
-  transition: all 1000ms ease;
+  box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
   cursor: pointer;
-  object-fit: contain;
+  width: var(--width);
+  height: var(--height);
 }
 
+.card img {
+  opacity: 0;
+  width: var(--width);
+  height: var(--height);
+}
+
+.btn_newGame {
+  cursor: pointer;
+}
