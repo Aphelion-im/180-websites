@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 
 :root {
   --lightblue: #AEDCE9;
   --darkerblue: #1891D0;
-  --width: 71px;
+  --warning: #F4C925;
+  --width: 71px; 
   --height: 71px;
 }
 
@@ -14,8 +16,9 @@
 }
 
 body {
+  background-color: #145396;
   font-size: 100%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Carter One', cursive;
 }
 
 p {
@@ -24,7 +27,14 @@ p {
   margin: 8px 0;
 }
 
+button {
+  color: #140200;
+  text-transform: uppercase;
+  font-family: 'Carter One', cursive;
+}
+
 .info {
+  color: #fff;
   width: 1000px;
   padding: 8px;
   display: flex;
@@ -45,16 +55,11 @@ p {
 }
 
 .card {
-  border-radius: 4px;
-  font-weight: 700;
+  cursor: pointer;
   align-items: center;
-  border: 1px solid var(--darkerblue);
   display: flex;
   justify-content: center;
   margin: 5px;
-  box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
   cursor: pointer;
   width: var(--width);
   height: var(--height);
@@ -66,48 +71,49 @@ p {
 }
 
 .feedback {
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  color: red;
+  color: var(--warning);
   width: 900px;
   margin: 8px auto 0 auto;
   height: 16px;
   text-align: center;
 }
 
-
-/* Experimental section */
 .card-face {
-  color: white;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 200px;
   height: 200px;
-  border-radius: 12px;
-  border-width: 1px;
-  border-style: solid;
-  overflow: hidden;
+  border-radius: 4px;
   transition: transform 500ms ease-in-out;
   backface-visibility: hidden;
+  box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 2px 5px 1px rgba(0, 0, 0, 0.75);
+  width: var(--width);
+  height: var(--height);
 }
 
 .card-back {
   background-color: black;
-  border-color: #FF6D00;
-  transform: rotateY(0); 
+  transform: rotateY(0);
 }
 
 .card-front {
   background-color: #FFBB89;
-  border-color: #333;
   transform: rotateY(180deg);
 }
 
-.cardZ.visible .card-back {
-  transform: rotateY(-180deg); 
+.card-back img,
+.card-front img {
+  width: var(--width);
+  height: var(--height);
 }
 
-.cardZ.visible .card-front {
-  transform: rotateY(0); 
+.card.visible .card-back {
+  transform: rotateY(-180deg);
+}
+
+.card.visible .card-front {
+  transform: rotateY(0);
 }

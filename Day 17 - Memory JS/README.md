@@ -3,10 +3,14 @@
 * 72 cards (36 pairs)
 * :root {--blue: #AEDCE9; } --> background-color: var(--blue);
 * .firstElementChild(); (Similar to .firstChild());
+* .lastElementChild();
 * .gitignore
 * gitignored files and folder become greyed out in explorer.
 * Fisher-Yates shuffle algorithm.
 * Flexbox: order. 
+* CSS backface visibility. See resources section below.
+
+
 
 ## Shuffles
 <strong>Fisher-Yates shuffle algorithm</strong>
@@ -39,11 +43,8 @@ cardArray.sort(() => 0.5 - Math.random());
 ## Resources
 * https://github.com/WebDevSimplified/Mix-Or-Match
 * https://github.com/kubowania/memory-game
+* https://www.w3schools.com/CSSref/css3_pr_backface-visibility.asp 
 
 ## To do
-* Turn max 2 cards at a time. If both cards are not equal turn blue again.
-* cards not allowed to click twice to score.
+* Turn max 2 cards at a time.
 * Global gitignore for _source
-* Do not turn the winning cards again after a mismatch
-* Unable to click and reveal a third card. Only 2 cards at a time.
-* Ravensburger gele achtergrond en kleurenthema.
