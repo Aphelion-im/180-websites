@@ -3,8 +3,8 @@
 :root {
   --lightblue: #AEDCE9;
   --darkerblue: #1891D0;
-  --width: 150px;
-  --height: 150px;
+  --width: 71px;
+  --height: 71px;
 }
 
 *,
@@ -45,10 +45,7 @@ p {
 }
 
 .card {
-  background-color: var(--lightblue);
-  background-image: url(../images/card-back-200x200-v2.png);
   border-radius: 4px;
-  color: rgba(0, 0, 0, 1);
   font-weight: 700;
   align-items: center;
   border: 1px solid var(--darkerblue);
@@ -63,12 +60,54 @@ p {
   height: var(--height);
 }
 
-.card img {
-  opacity: 0;
-  width: var(--width);
-  height: var(--height);
+.btn_newGame {
+  padding: 0 16px;
+  cursor: pointer;
 }
 
-.btn_newGame {
-  cursor: pointer;
+.feedback {
+  font-weight: 700;
+  color: red;
+  width: 900px;
+  margin: 8px auto 0 auto;
+  height: 16px;
+  text-align: center;
+}
+
+
+/* Experimental section */
+.card-face {
+  color: white;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  transition: transform 500ms ease-in-out;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: black;
+  border-color: #FF6D00;
+  transform: rotateY(0); 
+}
+
+.card-front {
+  background-color: #FFBB89;
+  border-color: #333;
+  transform: rotateY(180deg);
+}
+
+.cardZ.visible .card-back {
+  transform: rotateY(-180deg); 
+}
+
+.cardZ.visible .card-front {
+  transform: rotateY(0); 
 }

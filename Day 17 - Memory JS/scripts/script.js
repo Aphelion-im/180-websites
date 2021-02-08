@@ -1,139 +1,148 @@
 "use strict";
 
 window.addEventListener("load", () => {
-
-  const cardsArray = [{
-      image: "../images/cards/card-front-apple-200x200.jpg",
-      name: "Apple",
-      alt: "Apple card"
-    },
-    {
-      image: "../images/cards/card-front-banana-200x200.jpg",
-      name: "Banana",
-      alt: "Banana card"
-    },
-    {
-      location: "../images/cards/card-front-beetle-200x200.jpg",
-      name: "Beetle",
-      alt: "Beetle card"
-    }
-  ];
-
-
-
   // Variables
-  const cards = document.querySelectorAll(".card");
+  const main = document.querySelector(".grid");
   const scoreOutput = document.querySelector(".output");
   const flipsOutput = document.querySelector(".flips");
   const btn_newGame = document.querySelector(".btn_newGame");
+  const feedback = document.querySelector(".feedback");
   let chosenArray = [];
-
-  let score = 0;
+  let chosenIds = [];
+  let winningArray = [];
   let flips = 0;
-  let clicks = 0;
+  let message;
 
 
   // Eventlisteners
-  cards.forEach(card => card.addEventListener("click", turnCard));
   btn_newGame.addEventListener("click", newGame);
-
-
   newGame();
 
+  // HTML template: 
+  // <img class="card" src="images/cards/card-front-apple-200x200.jpg" data-card="Apple" data-id="6" alt="Apple card">
+  function createBoard() {
+    for (let i = 0; i < cardsArray.length; i++) {
+      const imageCard = document.createElement("img");
+      imageCard.setAttribute("class", "card");
+      imageCard.setAttribute("src", "images/card-back-200x200-v2.png"); // cardsArray[i].location
+      imageCard.setAttribute("data-card", cardsArray[i].name);
+      imageCard.setAttribute("data-id", cardsArray[i].id);
+      imageCard.setAttribute("alt", cardsArray[i].name + " Card");
+      imageCard.addEventListener("click", turnCard);
+      main.appendChild(imageCard);
+    }
+  };
 
-
-
-  function turnCard(e) {
-
+  function turnCard() {
     console.clear();
     flips++;
-    clicks++;
-    flipsOutput.textContent = `Flips: ${flips}`;
+    const dataId = this.getAttribute("data-id");
+    const dataCard = this.getAttribute("data-card");
 
-    // Turn card. Show content of card. Remove background.
-    this.style.background = "none";
-    this.firstElementChild.style.opacity = 100;
+    chosenIds.push(dataId);
+    console.log("chosenIds Array: " + chosenIds);
+    chosenArray.push(dataCard);
+    console.log("chosenArray: " + chosenArray);
 
-    let choice = e.target.getAttribute("data-card");
-    e.target.setAttribute("data-counter", 1);
+    this.setAttribute("src", cardsArray[dataId].location);
 
-
-    if (e.target.getAttribute("data-counter") == "1") {
-      console.log("No more clicking allowed");
-      this.removeEventListener("click", turnCard);
-      e.target.style.cursor = "default";
+    if (chosenArray.length === 2 && chosenIds.length === 2) {
+      setTimeout(checkMatch, 1000);
     } 
-
-
-
-
-    putBackCard();
   };
 
 
-
-
-
-
   function checkMatch() {
-    const dataCard = card.firstElementChild.getAttribute("data-card");
-    if (dataCard == chosenArray[0] || dataCard == chosenArray[1]) {
-      console.log("Match!");
+    const cards = document.querySelectorAll(".card");
+    const choiceId1 = chosenIds[0];
+    const choiceId2 = chosenIds[1];
+    const choice1 = chosenArray[0];
+    const choice2 = chosenArray[1];
+
+
+    if (choiceId1 == choiceId2) {
+      cards[choiceId1].setAttribute("src", "images/card-back-200x200-v2.png");
+      message = "You chose the same card!";
+      displayFeedback(message);
+    } else if (choice1 == choice2) {
+      cards[choiceId1].removeEventListener("click", turnCard);
+      cards[choiceId2].removeEventListener("click", turnCard);
+      cards[choiceId1].style.cursor = "not-allowed";
+      cards[choiceId2].style.cursor = "not-allowed";
+      winningArray.push(choice1);
+      winningArray.push(choice2);
+      message = "Well done! Score +1!";
+      displayFeedback(message);
     } else {
-      console.log("No match!");
-      putBackCard();
+      message = "Alas! No matching cards.";
+      displayFeedback(message);
+      cards[choiceId1].setAttribute("src", "images/card-back-200x200-v2.png");
+      cards[choiceId2].setAttribute("src", "images/card-back-200x200-v2.png");
     }
 
-  }
+    if (winningArray.length / 2 == cardsArray.length / 2) {
+      winner();
+    }
+
+    flipsOutput.textContent = `Flips: ${flips}`;
+    scoreOutput.textContent = `Score: ${winningArray.length / 2}`;
+    chosenIds = [];
+    chosenArray = [];
+  };
 
 
+  function winner() {
+    message = "Congratulations you won the game! You have a very good memory!";
+    displayFeedback(message);
+  };
 
-  // Turn the card back again with blue side facing up
-  function putBackCard() {
-    for (let card of cards) {
-      setTimeout(() => {
-        card.removeAttribute("style");
-        card.firstElementChild.style.opacity = 0;
-        card.style.backgroundImage = `url(../images/card-back-200x200-v2.png)`;
-        card.addEventListener("click", turnCard);
-        card.style.cursor = "pointer";
-      }, 2000);
-    };
-  }
+  function displayFeedback(message) {
+    feedback.textContent = message;
+    setTimeout(() => {
+      feedback.textContent = "";
+    }, 3000);
+  };
 
   // Start a new game. Reset all stats and shuffle the cards.
   function newGame() {
-    cards.forEach(card => card.firstElementChild.style.opacity = 0);
-    cards.forEach(card => card.style.backgroundImage = `url(../images/card-back-200x200-v2.png)`);
+    main.innerHTML = "";
+    createBoard();
     shuffle();
     flips = 0;
-    score = 0;
-    scoreOutput.textContent = `Score: ${score}`;
+    chosenArray = [];
+    chosenIds = [];
+    winningArray = [];
+    scoreOutput.textContent = `Score: ${winningArray.length}`;
     flipsOutput.textContent = `Flips: ${flips}`;
-  }
+  };
 
-  // Shuffle the cards
+  // Fisher-Yates shuffle algorithm.
   function shuffle() {
-    for (let card of cards) {
-      let num = Math.floor(Math.random() * cards.length);
-      card.style.order = num;
+    const cards = document.querySelectorAll(".card");
+    for (let i = cards.length - 1; i > 0; i--) {
+      let randIndex = Math.floor(Math.random() * (i + 1));
+      cards[randIndex].style.order = i;
+      cards[i].style.order = randIndex;
     }
-  }
+  };
 
+const cardZ = document.querySelector(".cardZ");
+cardZ.addEventListener("click", () => {
 
+cardZ.classList.toggle("visible");
 
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
 }); // End load eventlistener
+
+
+// Simple shuffle 1: 
+// for (let card of cards) {
+//   let num = Math.floor(Math.random() * cards.length);
+//   card.style.order = num;
+// }
+
+// Simple shuffle 2:
+// cardArray.sort(() => 0.5 - Math.random())
