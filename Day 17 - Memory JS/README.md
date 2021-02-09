@@ -1,5 +1,7 @@
 # Remake Junior Memory 1969 from Ravensburger
 
+Updated: 9-2-2021
+
 * 72 cards (36 pairs)
 * :root {--blue: #AEDCE9; } --> background-color: var(--blue);
 * .firstElementChild(); (Similar to .firstChild());
