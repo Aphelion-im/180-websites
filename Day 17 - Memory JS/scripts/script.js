@@ -105,7 +105,7 @@ window.addEventListener("load", () => {
     }
 
     if (winningArray.length / 2 == cardsArray.length / 2) {
-      winner();
+      feedback.innerText = "Congratulations you won the game! You have a very good memory!";
     }
 
     flipsOutput.textContent = `Flips: ${flips}`;
@@ -113,11 +113,6 @@ window.addEventListener("load", () => {
     chosenIds = [];
     chosenArray = [];
     busy = false;
-  };
-
-  function winner() {
-    feedback.textContent = "Congratulations you won the game! You have a very good memory!";
-    clearTimeout();
   };
 
   function displayFeedback(message) {
