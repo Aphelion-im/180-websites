@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
   let winningArray = [];
   let flips = 0;
   let message;
-  let busy;
+  let busy = false;
 
 
 
@@ -57,20 +57,23 @@ window.addEventListener("load", () => {
   };
 
   function turnCard() {
-    console.clear();
-    this.classList.add("visible");
-    flips++;
-    const dataId = this.lastElementChild.lastElementChild.getAttribute("data-id");
-    const dataCard = this.lastElementChild.lastElementChild.getAttribute("data-card");
 
-    chosenIds.push(dataId);
-    console.log("chosenIds Array: " + chosenIds);
-    chosenArray.push(dataCard);
-    console.log("chosenArray: " + chosenArray);
+    if (!busy) {
+      console.clear();
+      this.classList.add("visible");
+      flips++;
+      const dataId = this.lastElementChild.lastElementChild.getAttribute("data-id");
+      const dataCard = this.lastElementChild.lastElementChild.getAttribute("data-card");
 
+      chosenIds.push(dataId);
+      console.log("chosenIds Array: " + chosenIds);
+      chosenArray.push(dataCard);
+      console.log("chosenArray: " + chosenArray);
 
-    if (chosenArray.length === 2 && chosenIds.length === 2) {
-      setTimeout(checkMatch, 1500);
+      if (chosenArray.length === 2 && chosenIds.length === 2) {
+        busy = true; // Flip only 2 cards and compare. Prevent during this comparing (= busy) that other cards are turned.
+        setTimeout(checkMatch, 1500);
+      }
     }
   };
 
@@ -109,10 +112,12 @@ window.addEventListener("load", () => {
     scoreOutput.textContent = `Score: ${winningArray.length / 2}`;
     chosenIds = [];
     chosenArray = [];
+    busy = false;
   };
 
   function winner() {
     feedback.textContent = "Congratulations you won the game! You have a very good memory!";
+    clearTimeout();
   };
 
   function displayFeedback(message) {

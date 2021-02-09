@@ -46,5 +46,5 @@ cardArray.sort(() => 0.5 - Math.random());
 * https://www.w3schools.com/CSSref/css3_pr_backface-visibility.asp 
 
 ## To do
-* Turn max 2 cards at a time.
 * Global gitignore for _source
+* Fix display message after winning
