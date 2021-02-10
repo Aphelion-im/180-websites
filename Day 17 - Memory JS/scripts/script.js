@@ -7,17 +7,22 @@ window.addEventListener("load", () => {
   const flipsOutput = document.querySelector(".flips");
   const btn_newGame = document.querySelector(".btn_newGame");
   const feedback = document.querySelector(".feedback");
+  const numberOfCardsSlider = document.querySelector(".numberOfCardsSlider");
+  const numberOfCardsOut = document.querySelector(".choices input+span");
   let chosenArray = [];
   let chosenIds = [];
   let winningArray = [];
   let flips = 0;
   let message;
   let busy = false;
+  let timeout;
+  let numberOfCardsChosen  = 72;
 
 
 
   // Eventlisteners
   btn_newGame.addEventListener("click", newGame);
+  numberOfCardsSlider.addEventListener("input", numberOfCards);
   newGame();
 
   // HTML template for createBoard(): 
@@ -32,7 +37,7 @@ window.addEventListener("load", () => {
     </div>
   */
   function createBoard() {
-    for (let i = 0; i < cardsArray.length; i++) {
+    for (let i = 0; i < numberOfCardsChosen; i++) { // let i = 0; i < cardsArray.length; i++
       const classCard = document.createElement("div");
       classCard.setAttribute("class", "card");
       classCard.addEventListener("click", turnCard);
@@ -55,6 +60,15 @@ window.addEventListener("load", () => {
       cardFront.appendChild(imageCardFront);
     }
   };
+
+  function numberOfCards() {
+
+    numberOfCardsChosen = numberOfCardsSlider.value;
+    numberOfCardsOut.textContent = numberOfCardsChosen;
+    newGame();
+
+
+  }
 
   function turnCard() {
 
@@ -104,8 +118,10 @@ window.addEventListener("load", () => {
       cards[choiceId2].classList.remove("visible");
     }
 
-    if (winningArray.length / 2 == cardsArray.length / 2) {
-      feedback.innerText = "Congratulations you won the game! You have a very good memory!";
+    // Determine win conditions
+    if (winningArray.length == numberOfCardsChosen) { // winningArray.length / 2 == cardsArray.length / 2
+      clearTimeout(timeout);
+      feedback.textContent = "Congratulations you won the game!";
     }
 
     flipsOutput.textContent = `Flips: ${flips}`;
@@ -117,7 +133,7 @@ window.addEventListener("load", () => {
 
   function displayFeedback(message) {
     feedback.textContent = message;
-    setTimeout(() => {
+    timeout = setTimeout(() => {
       feedback.textContent = "";
     }, 3000);
   };
@@ -134,6 +150,7 @@ window.addEventListener("load", () => {
     winningArray = [];
     scoreOutput.textContent = `Score: ${winningArray.length}`;
     flipsOutput.textContent = `Flips: ${flips}`;
+    feedback.textContent = "";
   };
 
   // Fisher-Yates shuffle algorithm.

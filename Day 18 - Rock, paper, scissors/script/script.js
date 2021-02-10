@@ -93,9 +93,6 @@ window.addEventListener("load", () => {
 
   function showMessage(message) {
     whoWins.innerText = message;
-    setTimeout(() => {
-      whoWins.innerText = "";
-    }, 3000);
   };
 
 
