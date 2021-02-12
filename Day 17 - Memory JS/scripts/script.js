@@ -16,7 +16,7 @@ window.addEventListener("load", () => {
   let message;
   let busy = false;
   let timeout;
-  let numberOfCardsChosen  = 72;
+  let numberOfCardsChosen = 72;
 
 
 
@@ -66,9 +66,11 @@ window.addEventListener("load", () => {
     numberOfCardsChosen = numberOfCardsSlider.value;
     numberOfCardsOut.textContent = numberOfCardsChosen;
     newGame();
-
-
   }
+
+
+  // If two cards are chosen/pushed. Turn Busy to true. Turn Busy to False until after the Checkmatch.
+  // This will prevent players from turning more than 2 cards.
 
   function turnCard() {
 
@@ -84,13 +86,20 @@ window.addEventListener("load", () => {
       chosenArray.push(dataCard);
       console.log("chosenArray: " + chosenArray);
 
+      // Show player's choice, not with the standard: choice1,choice2 but like this: choice1 & choice2
+      feedback.textContent = chosenArray.join(" & ");
+
       if (chosenArray.length === 2 && chosenIds.length === 2) {
-        busy = true; // Flip only 2 cards and compare. Prevent during this comparing (= busy) that other cards are turned.
+        busy = true;
         setTimeout(checkMatch, 1500);
       }
     }
   };
 
+  // Push choice 1 and 2 into the chosenArray and chosenIds arrays.
+  // If ID1 is equal to ID2, player has chosen the same card. 
+  // In order to score, player has to choose 2 different ID's and 2 cards with the same name.
+  // If 2 cards did not match ID and did not match Name, flip the card back again to its backside
   function checkMatch() {
     const cards = document.querySelectorAll(".card");
     const choiceId1 = chosenIds[0];
@@ -119,7 +128,8 @@ window.addEventListener("load", () => {
     }
 
     // Determine win conditions
-    if (winningArray.length == numberOfCardsChosen) { // winningArray.length / 2 == cardsArray.length / 2
+    // If the number of pushed items to the winningarray is equal to the chosen number of cards, player wins
+    if (winningArray.length == numberOfCardsChosen) {
       clearTimeout(timeout);
       feedback.textContent = "Congratulations you won the game!";
     }

@@ -12,6 +12,7 @@ Updated: 9-2-2021
 * Flexbox: order. 
 * CSS backface visibility. See resources section below.
 * clearTimeout: Initiate a global variable. Within a function pass the timeout to this variable within local scope. Now this timeout is available globally. 
+* Array.join(" * "); -> Where * is the seperator.
 
 
 

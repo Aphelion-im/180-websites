@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'squarefontregular';
+  src: url('../fonts/square-webfont.woff2') format('woff2'),
+    url('../fonts/square-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+main {
+  width: 1000px;
+  height: 550px;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.middle {
+  height: 500px;
+  width: 1px;
+  border: 3px dotted white;
+}
+
+.player1,
+.player2 {
+  width: 10px;
+  height: 70px;
+  background-color: white;
+  transition: all 250ms ease;
+}
+
+.player1 {
+  background-color: white;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.player2 {
+  background-color: white;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Scores */
+.scorePlayer1 {
+  font-family: squarefontregular, sans-serif;
+  font-size: 5rem;
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 25%;
+  transform: translateX(-50%);
+}
+
+.scorePlayer2 {
+  font-family: squarefontregular, sans-serif;
+  font-size: 5rem;
+  position: absolute;
+  color: white;
+  top: 0;
+  right: 25%;
+  transform: translateX(-50%);
+}
+
+.ball {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transition: all 30ms ease;
+}
