@@ -6,12 +6,6 @@
   font-style: normal;
 }
 
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-} */
-
 body {
   background-color: black;
 }
@@ -22,6 +16,8 @@ body {
   border: none;
   border-top: 3px solid white;
   border-bottom: 3px solid white;
+  border-right: 1px solid red;
+  border-left: 1px solid red;
   display: flex;
   justify-content: center;
   margin: 0 auto;

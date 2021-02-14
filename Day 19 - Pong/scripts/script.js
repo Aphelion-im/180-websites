@@ -12,13 +12,13 @@ window.addEventListener("load", () => {
   const player1Height = 70;
   let xDirection = -2;
   let yDirection = 2;
-  const ballStart = [492, 5]; // [x, y] -- Start position of the ball
+  const ballStart = [492, 5]; // [x, y] -- Start position of the ball: 492, 5
   let ballCurrentPosition = ballStart;
   let timerId;
   let player1Score = 0;
   let player2Score = 0;
 
-  const player1Start = [10, 230]
+  const player1Start = [10, 230] // 10, 230
   let currentPositionPlayer1 = player1Start // [x, y]
 
   //add ball
@@ -59,7 +59,6 @@ window.addEventListener("load", () => {
       scoreDisplay2.textContent = player2Score;
       console.log("Left wall");
       changeDirection();
-
     }
 
     if (ballCurrentPosition[1] >= (boardHeight - ballDiameter)) {
@@ -68,13 +67,13 @@ window.addEventListener("load", () => {
     }
 
     if (ballCurrentPosition[1] <= 0) {
-      console.log("ballCurrentPosition[1]" + ballCurrentPosition[1]);
+
       console.log("Bottom wall");
       changeDirection();
     }
 
 
-    //check for user collision
+    // Check for user collision
     if (
       (ballCurrentPosition[0] > currentPositionPlayer1[0] && ballCurrentPosition[0] < currentPositionPlayer1[0] + player1Width) &&
       (ballCurrentPosition[1] > currentPositionPlayer1[1] && ballCurrentPosition[1] < currentPositionPlayer1[1] + player1Height)
@@ -86,27 +85,77 @@ window.addEventListener("load", () => {
   // Ball change direction
   function changeDirection() {
 
-    if (xDirection === 2 && yDirection === 2) // Naar rechtsonder
-    {
-      yDirection = -2; // Naar boven
+
+    // Muur Top
+    // Rule 1. Muur Top. Rechtsboven.
+    if (xDirection === 2 && yDirection === 2 && ballCurrentPosition[1] > boardHeight - ballDiameter) {
+      console.log("Rule 1 tiggered! Current pos: " + ballCurrentPosition[1]);
+      xDirection = 2;
+      yDirection = -2;
       return;
     }
 
-    if (xDirection === 2 && yDirection === -2) // Naar rechtsboven
+    // Rule 2 Muur Top. Linksboven.
+    if (xDirection === -2 && yDirection === 2 && ballCurrentPosition[1] > boardHeight - ballDiameter) // naar linksboven. Muur top. (ccw)
     {
-      xDirection = -2; // Naar links
+      console.log("Rule 2 tiggered! Current pos: " + ballCurrentPosition[1]);
+      xDirection = -2;
+      yDirection = -2;
       return;
     }
 
-    if (xDirection === -2 && yDirection === -2) // Naar linksonder
-    {
-      yDirection = 2; // --> Naar onder
+
+    // Muur Rechts
+    // Rule 3. Muur rechts. Rechtsboven.
+    if (xDirection === 2 && yDirection === 2 && ballCurrentPosition[0] > boardWidth - 20) {
+      console.log("Rule 3 tiggered! Current pos: " + ballCurrentPosition[0]);
+      xDirection = -2;
+      yDirection = 2;
       return;
     }
 
-    if (xDirection === -2 && yDirection === 2) // Naar rechtsonder
+    // Rule 4. Muur rechts. Rechtsonder.  
+    if (xDirection === 2 && yDirection === -2 && ballCurrentPosition[0] > boardWidth - 20) {
+      console.log("Rule 4 tiggered! Current pos: " + ballCurrentPosition[0]);
+      xDirection = -2;
+      yDirection = -2;
+      return;
+    }
+
+    // Muur bodem
+    // Rule 5. Muur bodem. Naar rechtsonder.
+    if (xDirection === 2 && yDirection === -2 && ballCurrentPosition[1] < 0) // naar rechtsonder.  Muur bodem.
     {
-      xDirection = 2; // --> Naar rechts
+      console.log("Rule 5 tiggered! Current pos: " + ballCurrentPosition[1]);
+      xDirection = 2;
+      yDirection = 2;
+      return;
+    }
+
+    // Rule 6. Muur bodem. Naar linksonder. 
+    if (xDirection === -2 && yDirection === -2 && ballCurrentPosition[1] < 0) // naar rechtsonder.  Muur bodem.
+    {
+      console.log("Rule 6 tiggered! Current pos: " + ballCurrentPosition[1]);
+      xDirection = -2;
+      yDirection = 2;
+      return;
+    }
+
+    // Muur links
+    // Rule 7. Muur links. Naar linksboven
+    if (xDirection === -2 && yDirection === 2 && ballCurrentPosition[0] < 20) {
+      console.log("Rule 7 tiggered! Current pos: " + ballCurrentPosition[0]);
+      xDirection = 2;
+      yDirection = 2;
+      return;
+    }
+
+
+    // Rule 8. Muur links. Naar linksonder.
+    if (xDirection === -2 && yDirection === -2 && ballCurrentPosition[0] < 20) {
+      console.log("Rule 8 tiggered! Current pos: " + ballCurrentPosition[0]);
+      xDirection = 2;
+      yDirection = -2;
       return;
     }
   };
@@ -146,6 +195,8 @@ window.addEventListener("load", () => {
           drawUserPlayer1();
         }
         break;
+      default:
+        console.log("Nothing happened!");
     }
   };
 

@@ -87,7 +87,7 @@ window.addEventListener("load", () => {
       console.log("chosenArray: " + chosenArray);
 
       // Show player's choice, not with the standard: choice1,choice2 but like this: choice1 & choice2
-      feedback.textContent = chosenArray.join(" & ");
+      feedback.innerHTML = chosenArray.join(" & ");
 
       if (chosenArray.length === 2 && chosenIds.length === 2) {
         busy = true;
