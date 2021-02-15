@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
 
     if (ballCurrentPosition[0] >= (boardWidth - ballDiameter)) {
       player1Score++;
-      scoreDisplay1.textContent = player2Score;
+      scoreDisplay1.textContent = player1Score;
       console.log("Right wall");
       changeDirection();
     }
@@ -67,7 +67,6 @@ window.addEventListener("load", () => {
     }
 
     if (ballCurrentPosition[1] <= 0) {
-
       console.log("Bottom wall");
       changeDirection();
     }
@@ -84,7 +83,6 @@ window.addEventListener("load", () => {
 
   // Ball change direction
   function changeDirection() {
-
 
     // Muur Top
     // Rule 1. Muur Top. Rechtsboven.
@@ -103,7 +101,6 @@ window.addEventListener("load", () => {
       yDirection = -2;
       return;
     }
-
 
     // Muur Rechts
     // Rule 3. Muur rechts. Rechtsboven.
@@ -149,7 +146,6 @@ window.addEventListener("load", () => {
       yDirection = 2;
       return;
     }
-
 
     // Rule 8. Muur links. Naar linksonder.
     if (xDirection === -2 && yDirection === -2 && ballCurrentPosition[0] < 20) {

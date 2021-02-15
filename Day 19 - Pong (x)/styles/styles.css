@@ -38,17 +38,8 @@ body {
   width: 10px;
   height: 70px;
   background-color: white;
+  position: absolute;
   transition: all 250ms ease;
-}
-
-.player1 {
-  background-color: white;
-  position: absolute;
-}
-
-.player2 {
-  background-color: white;
-  position: absolute;
 }
 
 /* Scores */
