@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.output {
+  width: 1000px;
+  font-size: 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+main img {
+  width: 150px;
+  height: 150px;
+  align-self: center;
+  margin-top: 48px;
+}
+
+button {
+  width: 200px;
+  align-self: center;
+  cursor: pointer;
+}
+
+
